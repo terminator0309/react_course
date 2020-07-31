@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Navbar, NavbarBrand } from 'reactstrap';
-
-import Menu from '../components/Menu.jsx';
+import Menu from './components/Menu.jsx';
+import { DISHES } from './dishes.js';
 
 class App extends Component{
+  
+  constructor(props){
+    super(props);
+    this.state = {
+      dishes: DISHES
+    };
+  }
+  
   render(){
     return (
     <div className="App">
@@ -13,7 +21,7 @@ class App extends Component{
           <NavbarBrand href="/">Hello World</NavbarBrand>  
         </div>
       </Navbar>
-      <Menu />
+      <Menu dishes={this.state.dishes} />
     </div>
     );
   }
