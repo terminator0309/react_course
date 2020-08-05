@@ -1,28 +1,19 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Navbar, NavbarBrand } from 'reactstrap';
-import Menu from './components/Menu.jsx';
-import { DISHES } from './dishes.js';
+import Main from './components/Main.jsx';
 
 class App extends Component{
   
   constructor(props){
     super(props);
-    this.state = {
-      dishes: DISHES
-    };
   }
   
   render(){
     return (
-    <div className="App">
-      <Navbar dark color="primary">
-        <div className="container">
-          <NavbarBrand href="/">Hello World</NavbarBrand>  
-        </div>
-      </Navbar>
-      <Menu dishes={this.state.dishes} />
-    </div>
+    <React.Fragment>
+      <Main />
+    </React.Fragment>
     );
   }
 }

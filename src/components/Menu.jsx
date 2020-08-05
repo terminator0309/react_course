@@ -2,44 +2,22 @@ import React, { Component } from 'react';
 import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
 import Dishdetail from './Dishdetail.jsx';
 
+function RenderMenuItems({dish, onclick}){
+  return (
+    <Card key={dish.id} onClick={() => onclick(dish.id)} >
+      <CardImg width="100%" src={dish.image} alt={dish.name} />
+      <CardImgOverlay>
+        <CardTitle>{dish.name}</CardTitle>
+      </CardImgOverlay>
+    </Card>
+    );
+}
 
-class Menu extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      selectedDish: null
-    };
-  }
-  
-  onDishSelect(dish){
-    this.setState({ selectedDish: dish});
-  }
-  
-  renderDish(dish){
-    if(dish != null)
-    return (
-      <Card>
-      <CardImg top src={dish.image} alt={dish.name} />
-      <CardBody>
-      <CardTitle>{dish.name}</CardTitle>
-      <CardText>{dish.description}</CardText>
-      </CardBody>
-      </Card>
-      );
-    else
-    return(<div></div>);
-  }
-  
-  render() {
-    const menu = this.props.dishes.map((dish) => {
+  const Menu = props => {
+    const menu = props.dishes.map((dish) => {
       return (
         <div className="col-12 col-md-5 m-1">
-        <Card key={dish.id} onClick={() => this.onDishSelect(dish)} >
-        <CardImg width="100%" src={dish.image} alt={dish.name} />
-        <CardImgOverlay>
-        <CardTitle>{dish.name}</CardTitle>
-        </CardImgOverlay>
-        </Card>
+          <RenderMenuItems dish={dish} onclick={props.onclick} />
         </div>
         );
     });
@@ -48,21 +26,9 @@ class Menu extends Component {
       <div className="container">
         <div className="row">
           {menu}
-          <Dishdetail dish={this.state.selectedDish} />
         </div>
-        
       </div>
       );
   }
-}
 
 export default Menu;
-
-/*
-
-        <div className="row">
-          <div className="col-12 col-md-5 m-1">
-        {this.renderDish(this.state.selectedDish)}
-          </div>
-        </div>
-*/
