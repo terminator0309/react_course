@@ -3,6 +3,9 @@ import { Navbar, NavbarBrand } from 'reactstrap';
 import Menu from './Menu.jsx';
 import DishDetail from './Dishdetail.jsx';
 import { DISHES } from '../dishes.js';
+import Header from './Header.jsx';
+import Footer from './Footer.jsx';
+
 
 class Main extends Component{
   
@@ -21,18 +24,15 @@ class Main extends Component{
   render(){
     return (
     <div className="App">
-      <Navbar dark color="primary">
-        <div className="container">
-          <NavbarBrand href="/">Hello World</NavbarBrand>  
-        </div>
-      </Navbar>
+    <Header />
       <Menu dishes={this.state.dishes} onclick={(dishId) => this.onDishSelect(dishId)} />
       
       <div className="container">
-      <div className="row" >
-        <DishDetail dish={this.state.dishes.filter((dish) => dish.id === this.state.selectedDish)[0]} />
-    </div>
-    </div>
+        <div className="row" >
+          <DishDetail dish={this.state.dishes.filter((dish) => dish.id === this.state.selectedDish)[0]} />
+        </div>
+      </div>
+      <Footer />
     </div>
     );
   }
