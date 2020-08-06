@@ -16,6 +16,7 @@ SystemJS.config({
       'reactstrap': 'reactstrap@8.5.0/dist/reactstrap.min.js',
       'bootstrap': 'bootstrap@4.3.1/css/bootstrap.min.js',
       'react-popper': 'react-popper/dist/index.umd.js',
+      'react-router-dom': 'react-router-dom/umd/react-router-dom.js'
     },
     transpiler: 'plugin-babel'
   });

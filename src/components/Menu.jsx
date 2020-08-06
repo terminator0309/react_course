@@ -4,7 +4,7 @@ import Dishdetail from './Dishdetail.jsx';
 
 function RenderMenuItems({dish, onclick}){
   return (
-    <Card key={dish.id} onClick={() => onclick(dish.id)} >
+    <Card key={dish.id}>
       <CardImg width="100%" src={dish.image} alt={dish.name} />
       <CardImgOverlay>
         <CardTitle>{dish.name}</CardTitle>
