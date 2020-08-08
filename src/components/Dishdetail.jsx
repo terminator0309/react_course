@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { Card, CardImg, CardBody, CardText, CardTitle , Media } from 'reactstrap';
+import { Card, CardImg, CardBody, CardText, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
   function RenderComments({Comments}){
+    console.log(Comments);
     const commentList = Comments.map((comments) => {
       console.log(comments.comment);
       return (
@@ -41,10 +43,23 @@ import { Card, CardImg, CardBody, CardText, CardTitle , Media } from 'reactstrap
   const DishDetail = props => {
     if(props.dish != null && props.dish != undefined){
     return(
-      <React.Fragment>
-        <RenderDish clickedDish={props.dish} />
-        <RenderComments Comments={props.dish.comments} />
-      </React.Fragment>
+      <div className="container">
+        <div className="row">
+          <Breadcrumb>
+            <BreadcrumbItem><Link to="/menu">Menu</Link>
+            </BreadcrumbItem>
+            <BreadcrumbItem active>{props.dish.name}
+            </BreadcrumbItem>
+          </Breadcrumb>
+          <div className="col-12">
+            <h3>{props.dish.name}</h3>
+          </div>
+        </div>
+        <div className="row">
+          <RenderDish clickedDish={props.dish} />
+          <RenderComments Comments={props.comments} />
+        </div>
+      </div>
       );
     }
       else{
