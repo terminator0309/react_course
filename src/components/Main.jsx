@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { Navbar, NavbarBrand } from 'reactstrap';
 import Menu from './Menu.jsx';
 import DishDetail from './Dishdetail.jsx';
-import { DISHES } from '../shared/dishes.js';
 import Header from './Header.jsx';
 import Footer from './Footer.jsx';
 import Home from './Home.jsx';
 import Contact from './Contact.jsx';
+import About from './About.jsx';
+import { DISHES } from '../shared/dishes.js';
 import { COMMENTS } from '../shared/comments.js';
 import { PROMOTIONS } from '../shared/promotions.js';
 import { LEADERS } from '../shared/leaders.js';
@@ -55,6 +56,7 @@ class Main extends Component{
         <Route path='/home' component={HomePage} />
         <Route exact path="/menu" component={() => <Menu dishes={this.state.dishes} />} />
         <Route path='/menu/:dishId' component={DishWithId} />
+        <Route path="/aboutus" component={() => <About leaders={this.state.leaders} />} />
         <Route exact path="/contactus" component={Contact} />
         <Redirect to="/home" />
       </Switch>
