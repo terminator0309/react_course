@@ -1,3 +1,6 @@
+//WARNING : my file structure is little bit differrent from
+// course so please change the imports accordingly. Thank you
+
 import React, { Component } from 'react';
 import { Navbar, NavbarBrand } from 'reactstrap';
 import Menu from './Menu.jsx';
