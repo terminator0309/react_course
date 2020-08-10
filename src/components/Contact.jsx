@@ -77,7 +77,7 @@ class Contact extends Component {
   }
   
   render() {
-    const error = validate(this.state.firstname, this.state.lastname, this.state.telnum, this.state.email);
+    const error = this.validate(this.state.firstname, this.state.lastname, this.state.telnum, this.state.email);
     return(
       <div className="container">
         <div className="row">
@@ -131,7 +131,7 @@ class Contact extends Component {
                   <Input type="text" id="firstname" name="firstname" placeholder="First Name" 
                   value={this.state.firstname} 
                   onChange={this.handleInputChange} 
-                  value={error.firstname === ''} 
+                  valid={error.firstname === ''} 
                   invalid={error.firstname !== ''} 
                   onBlur={this.handleBlur('firstname')} />
                   <FormFeedback>{error.firstname}</FormFeedback>
