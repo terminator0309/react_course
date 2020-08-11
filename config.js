@@ -15,8 +15,10 @@ SystemJS.config({
       'react-dom': 'react-dom@16.4.2/umd/react-dom.production.min.js',
       'reactstrap': 'reactstrap@8.5.0/dist/reactstrap.min.js',
       'bootstrap': 'bootstrap@4.3.1/css/bootstrap.min.js',
-      'react-popper': 'react-popper/dist/index.umd.js',
-      'react-router-dom': 'react-router-dom/umd/react-router-dom.js'
+      'react-popper': 'react-popper@latest/dist/index.umd.js',
+      'react-router-dom': 'react-router-dom@latest/umd/react-router-dom.js',
+      'redux': 'redux@3.7.2/dist/redux.js',
+      'react-redux': 'react-redux@5.0.7/dist/react-redux.min.js'
     },
     transpiler: 'plugin-babel'
   });
